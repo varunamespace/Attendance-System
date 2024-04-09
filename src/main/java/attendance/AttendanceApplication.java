@@ -1,10 +1,12 @@
 package attendance;
 
+import attendance.Configuration.ConfigApplication;
 import attendance.Domain.Attendance;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +18,9 @@ public class AttendanceApplication implements CommandLineRunner {
 	private AttendanceRepository attendanceRepository;
 
 	public static void main(String[] args) {
+		var context = new AnnotationConfigApplicationContext(ConfigApplication.class);
+		String s = context.getBean(String.class);
+		System.out.println(s);
 		SpringApplication.run(AttendanceApplication.class, args);
 	}
 
@@ -28,7 +33,7 @@ public class AttendanceApplication implements CommandLineRunner {
 			attendanceRepository.save(new Attendance(3,15,true));
 			attendanceRepository.saveAll(attendanceList);
 		}catch (Exception e){
-
+			System.out.println(e);
 		}
 	}
 }
