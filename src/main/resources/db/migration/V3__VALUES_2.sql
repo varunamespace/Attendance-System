@@ -1,0 +1,1 @@
+INSERT INTO attendance (id, total_leaves, today_leave) VALUES (8, 32, false);

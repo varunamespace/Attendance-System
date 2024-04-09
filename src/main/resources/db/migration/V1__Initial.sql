@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS attendance;]
+DROP TABLE IF EXISTS attendance;
 
 CREATE TABLE attendance (
     id INTEGER,
